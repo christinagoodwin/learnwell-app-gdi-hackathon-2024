@@ -7,13 +7,22 @@ import EduContent from "../EduContent/EduContent";
 import StudyPage from "../StudyPage/StudyPage";
 import Footer from "../Footer/Footer";
 import Modal from "../Modal/Modal";
+import { studyTips } from "../../utils/constants";
 
 function App() {
   const [topic, setTopic] = useState("");
   const [activeModal, setActiveModal] = useState("");
+  const [studyTip, setStudyTip] = useState({});
+
+  const pickRandomStudyTip = () => {
+    let randomStudyTip =
+      studyTips[Math.floor(Math.random() * studyTips.length)];
+    setStudyTip(randomStudyTip);
+  };
 
   const handleTipClick = () => {
     setActiveModal("healthyhabit");
+    pickRandomStudyTip();
   };
 
   const handleModalClose = () => {
@@ -31,7 +40,11 @@ function App() {
         </Routes>
         <Footer />
       </div>
-      <Modal activeModal={activeModal} handleModalClose={handleModalClose} />
+      <Modal
+        activeModal={activeModal}
+        handleModalClose={handleModalClose}
+        studyTip={studyTip}
+      />
     </div>
   );
 }
