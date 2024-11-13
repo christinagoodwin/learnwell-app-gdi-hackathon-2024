@@ -11,3 +11,6 @@ Thumbs.db
 
 # Environment files
 .env
+
+# Virtual environment
+venv
