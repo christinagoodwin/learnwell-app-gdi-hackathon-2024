@@ -37,19 +37,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'learnwell_backend.apps.UserFunctionalityConfig',
-    'learnwell_backend.apps.OpenaiIntegrationConfig',
+    'user_functionality.apps.UserFunctionalityConfig',
+    'openai_integration.apps.OpenaiIntegrationConfig',
     'rest_framework',
 ]
 
-REST_FRAMEWORK = {
+'''REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
-}
+} 
+Might need this'''
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
