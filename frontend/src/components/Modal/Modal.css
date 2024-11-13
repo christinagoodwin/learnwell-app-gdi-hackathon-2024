@@ -1,0 +1,48 @@
+.modal {
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+  transition: opacity;
+}
+
+.modal_opened {
+  opacity: 1;
+  visibility: visible;
+  transition: visibility 0s, opacity 0.5s ease-in-out;
+  pointer-events: all;
+}
+
+.modal__overlay {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal__card {
+  position: relative;
+  background-color: white;
+  width: 496px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal__close-btn {
+  border: none;
+  width: fit-content;
+  position: absolute;
+  height: 20px;
+  top: 20px;
+  right: 28px;
+  padding: 0;
+  z-index: 10;
+}
