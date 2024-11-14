@@ -43,7 +43,12 @@ def generate_text(user_prompt):
                                 "description": "The generated details relevant to the student's prompt in this subject",
                                 "type": "string"
                             },
-                        "required": ["subject", "description", "key_concepts", "details"],
+                        "study_plan":{
+                            "description": "Create a study plan based off of the given topic",
+                            "type": "string"
+
+                        },
+                        "required": ["subject", "description", "key_concepts", "details","study_plan"],
                         "additionalProperties": False
                     }
                 }
