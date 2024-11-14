@@ -60,7 +60,6 @@ function Timer({}) {
       </h1>
       <h3>20 Minutes</h3>
       <h2>{timer}</h2>
-      <button onClick={onClickReset}>Reset</button>
     </div>
   );
 }
