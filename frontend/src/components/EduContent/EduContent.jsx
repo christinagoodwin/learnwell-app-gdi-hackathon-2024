@@ -98,7 +98,7 @@ function EduContent({}) {
           </p>
         </div>
       </div>
-      <ButtonLink to="/studypage" className="educontent__go-btn">
+      <ButtonLink to="/activity" className="educontent__go-btn">
         How can I learn all this?
       </ButtonLink>
     </div>
