@@ -1,5 +1,6 @@
 import React from "react";
 import "./Activity.css";
+import ButtonLink from "../ButtonLink/ButtonLink";
 
 //Would be nice if the user could click a button to get a new activity response from API
 
@@ -12,10 +13,6 @@ function Activity({}) {
         active learning activity! Write, make, do, repeat. Challenge yourself to
         bring in information from new resources and synthesize what you learn in
         a single document.
-      </p>
-      <p className="activity__intro-text">
-        We'll check in on you along the way, remind you to take brain breaks,
-        and give a few tips on healthy study habits
       </p>
       <p className="activity__instructions">
         This is where we would display a response from the API. I'm not too
@@ -34,6 +31,9 @@ function Activity({}) {
         way can help you remember the escalation process and the
         interconnectedness of these events.
       </p>
+      <ButtonLink to="/instructions" className="educontent__go-btn">
+        Help me get started!
+      </ButtonLink>
     </div>
   );
 }
