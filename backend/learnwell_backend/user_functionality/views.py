@@ -4,6 +4,8 @@ from rest_framework import status
 from openai_integration.service import generate_text
 
 
+from openai_integration.service import summarize_text
+
 class WelcomeView(APIView):
     def get(self, request):
         # Placeholder response
@@ -17,8 +19,14 @@ class TopicChoiceView(APIView):
 
 class TopicOverviewView(APIView):
     def get(self, request):
-        # Placeholder response
-        return Response({"message": "Topic overview and study tips"}, status=status.HTTP_200_OK)
+
+        query=summarize_text(request.data, max_tokens=180)
+        response_data = {
+            "original_text": request.data,
+            "summary": query,
+        }
+
+        return Response(response_data, status=status.HTTP_200_OK)
 
 class StudyPlanView(APIView):
     def post(self, request):
@@ -64,7 +72,10 @@ class BreakSuggestionView(APIView):
 class HourCompletionReminderView(APIView):
     def get(self, request):
         # Placeholder response
+        
         return Response({"message": "One hour completed, reminder to take a break"}, status=status.HTTP_200_OK)
+    
+
 
 
 
