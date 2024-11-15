@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from openai import OpenAI, api_key
 import openai
 from learnwell_backend.config import apiKey
@@ -33,6 +34,15 @@ def summarize_text(text, max_tokens=180):
         return None
     
 
+=======
+from openai import OpenAI
+
+
+
+client = OpenAI()
+
+
+>>>>>>> 57b0466263b5111d257a5e1bb804578013e52857
 def generate_text(user_prompt):
 
     response = client.chat.completions.create(
