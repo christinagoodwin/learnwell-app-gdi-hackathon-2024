@@ -1,6 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from openai_integration.service import generate_text
+
 
 class WelcomeView(APIView):
     def get(self, request):
@@ -21,27 +23,25 @@ class TopicOverviewView(APIView):
 class StudyPlanView(APIView):
     def post(self, request):
         # Extract user input from the request
-        user_input = request.data.get('input', '')  # Default to an empty string if 'input' isn't provided
+        user_input = request.data.get('input') 
 
-        # Mock JSON data based on user input
-        mock_response = {
-            "input_received": user_input,
-            "choices": [
-                {
-                    "text": f"Here's a mock study plan idea based on your input: {user_input}",
-                    "index": 0,
-                    "logprobs": None,
-                    "finish_reason": "stop"
-                }
-            ],
-            "usage": {
-                "prompt_tokens": 10,
-                "completion_tokens": 15,
-                "total_tokens": 25
-            }
-        }
+        if not user_input:
+            return Response(
+                {"error": "Input is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Fetch summary using OpenAI
+        response = generate_text(user_input)
 
-        return Response(mock_response, status=status.HTTP_200_OK)
+        # Ensure the response contains valid data
+        if not isinstance(response, dict):
+            return Response(
+                {"error": "Unexpected response format from OpenAI."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+        return Response(response, status=status.HTTP_200_OK)
 
 class StudySessionStartView(APIView):
     def post(self, request):
