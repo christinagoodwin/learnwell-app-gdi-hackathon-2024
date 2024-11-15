@@ -20,8 +20,28 @@ class TopicOverviewView(APIView):
 
 class StudyPlanView(APIView):
     def post(self, request):
-        # Placeholder response
-        return Response({"message": "Generated study plan ideas"}, status=status.HTTP_200_OK)
+        # Extract user input from the request
+        user_input = request.data.get('input', '')  # Default to an empty string if 'input' isn't provided
+
+        # Mock JSON data based on user input
+        mock_response = {
+            "input_received": user_input,
+            "choices": [
+                {
+                    "text": f"Here's a mock study plan idea based on your input: {user_input}",
+                    "index": 0,
+                    "logprobs": None,
+                    "finish_reason": "stop"
+                }
+            ],
+            "usage": {
+                "prompt_tokens": 10,
+                "completion_tokens": 15,
+                "total_tokens": 25
+            }
+        }
+
+        return Response(mock_response, status=status.HTTP_200_OK)
 
 class StudySessionStartView(APIView):
     def post(self, request):
