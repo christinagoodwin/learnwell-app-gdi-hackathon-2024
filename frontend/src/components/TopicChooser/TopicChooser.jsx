@@ -5,8 +5,15 @@ import ButtonLink from "../ButtonLink/ButtonLink";
 function TopicChooser({}) {
   return (
     <div className="topic-chooser">
+      
       <h2 className="topic-chooser__heading">
-        What would you like to learn about?
+        What do you want
+      </h2>
+      <h2 className="topic-chooser__heading">
+        to learn about
+      </h2>
+      <h2 className="topic-chooser__heading">
+        today?
       </h2>
       <p className="topic-chooser__hint">
         We recommend entering a concept, historical event, or scientific process
@@ -17,7 +24,7 @@ function TopicChooser({}) {
         </label>
         <input
           type="text"
-          placeholder="outbreak of WWI"
+          placeholder=""
           className="topic-chooser__input"
         />
         <ButtonLink
