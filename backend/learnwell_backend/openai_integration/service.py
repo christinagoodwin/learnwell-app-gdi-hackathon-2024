@@ -1,32 +1,22 @@
 
 from openai import OpenAI, api_key
-import openai
-from learnwell_backend.config import apiKey
 
-
+# openai = OpenAI(a);
+from config import apiKey
 
 client = OpenAI(api_key=apiKey)
 
-
-
-
 def summarize_text(text, max_tokens=180):
-    # Create the prompt to instruct the model for summarization
     prompt = f"Summarize the following text in a few sentences:\n\n{text}"
 
     try:
-        # Call the OpenAI API with the summarization prompt
-        response = openai.Completion.create(
-            engine="gpt-3.5-turbo-instruct",  # or "gpt-4" if you're using GPT-4
-            prompt=prompt,
-            max_tokens=max_tokens,
-            n=1,  # Number of responses
-            stop=None,  # We don't need to specify a stopping sequence here
-            temperature=0.7  # Adjusts the randomness of the response
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=max_tokens
         )
-
-        # Extract the text response
-        summary = response.choices[0].text.strip()
+        
+        summary = response.choices[0].message.content.strip()
         return summary
 
     except Exception as e:
@@ -86,4 +76,3 @@ def generate_text(user_prompt):
         }
     ) 
     return response
-

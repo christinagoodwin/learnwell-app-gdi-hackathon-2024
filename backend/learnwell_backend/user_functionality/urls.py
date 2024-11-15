@@ -1,3 +1,4 @@
+
 from django.urls import path, include
 from .views import (
     WelcomeView,
@@ -9,6 +10,7 @@ from .views import (
     HourCompletionReminderView,
 )
 
+
 urlpatterns = [
     path('welcome/', WelcomeView.as_view(), name='welcome'),
     path('choose-topic/', TopicChoiceView.as_view(), name='choose_topic'),
@@ -17,7 +19,6 @@ urlpatterns = [
     path('start-session/', StudySessionStartView.as_view(), name='start_session'),
     path('break-suggestion/', BreakSuggestionView.as_view(), name='break_suggestion'),
     path('hour-reminder/', HourCompletionReminderView.as_view(), name='hour_reminder'),
-    
 ]
 
 
