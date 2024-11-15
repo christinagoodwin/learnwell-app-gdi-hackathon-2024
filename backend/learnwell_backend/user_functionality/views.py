@@ -71,6 +71,7 @@ class TopicOverviewView(APIView):
                 raise ValueError("Summarization failed")
             response_data = {
             "original_text": text_to_summarize,
+
             "summary": query,
         }
             return Response(response_data, status=status.HTTP_200_OK)
