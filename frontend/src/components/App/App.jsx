@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="app">
       <div className="app_content">
-        <Header />
+        <Header className="header" />
         <Routes>
           <Route path="/" element={<Main handleTipClick={handleTipClick} />} />
           <Route path="/picktopic" element={<TopicChooser />} />
