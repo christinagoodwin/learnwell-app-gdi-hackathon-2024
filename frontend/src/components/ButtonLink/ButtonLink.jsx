@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./ButtonLink.css"
+import "./ButtonLink.css";
 
 function ButtonLink({ to, children }) {
   return (

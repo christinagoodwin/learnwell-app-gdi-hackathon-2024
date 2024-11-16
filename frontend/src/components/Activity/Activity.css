@@ -1,0 +1,9 @@
+.activity__wrapper {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.activity__btn-box {
+  width: fit-content;
+  margin: 0 auto;
+}

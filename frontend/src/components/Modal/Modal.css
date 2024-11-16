@@ -30,7 +30,7 @@
 .modal__card {
   position: relative;
   background-color: white;
-  width: 496px;
+  width: 300px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -45,4 +45,15 @@
   right: 28px;
   padding: 0;
   z-index: 10;
+}
+
+.modal__title {
+  font-size: 24px;
+  line-height: 24px;
+  margin-left: 20px;
+}
+
+.modal__text {
+  margin-left: 20px;
+  margin-right: 20px;
 }

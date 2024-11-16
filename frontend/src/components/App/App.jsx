@@ -14,6 +14,7 @@ import Farewell from "../Farewell/Farewell";
 import Footer from "../Footer/Footer";
 import Modal from "../Modal/Modal";
 import { studyTips } from "../../utils/constants";
+import { getEduContent } from "../../utils/openAiAPI";
 
 function App() {
   const [topic, setTopic] = useState("");
@@ -26,6 +27,12 @@ function App() {
       studyTips[Math.floor(Math.random() * studyTips.length)];
     setStudyTip(randomStudyTip);
   };
+
+  /*
+  const getTopicResponse = ({ values }, resetForm) => {
+    getEduContent(values.userTopic).then((data) => setTopic(data));
+  };
+  */
 
   const handleTipClick = () => {
     setActiveModal("healthyhabit");
@@ -43,7 +50,6 @@ function App() {
   return (
     <div className="app">
       <div className="app_content">
-        <Header />
         <Routes>
           <Route path="/" element={<Main handleTipClick={handleTipClick} />} />
           <Route path="/picktopic" element={<TopicChooser />} />

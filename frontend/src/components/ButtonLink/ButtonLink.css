@@ -1,19 +1,19 @@
-.btn{
-    background-color: #FA3838;
-    color: white;
-    padding: 1rem 3rem;
-    border: none;
-    border-radius: 50px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+.btn {
+  background-color: #fa3838;
+  color: white;
+  padding: 1rem 3rem;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-.btn:hover{
-    background-color: #087373;
-    transform: scale(1.05);
+.btn:hover {
+  background-color: #087373;
+  transform: scale(1.05);
 }
 
-.btn:active{
-    transform: scale(0.95);
+.btn:active {
+  transform: scale(0.95);
 }

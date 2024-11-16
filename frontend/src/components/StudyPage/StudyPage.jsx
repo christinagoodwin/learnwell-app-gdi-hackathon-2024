@@ -5,6 +5,7 @@ import "./StudyPage.css";
 import EduContent from "../EduContent/EduContent";
 import Timer from "../Timer/Timer";
 import ButtonLink from "../ButtonLink/ButtonLink";
+import MiniHeader from "../MiniHeader/MiniHeader";
 
 //Needs to be setup so that user is taken to the breakpage when the timer goes off
 
@@ -24,11 +25,8 @@ function StudyPage({ countActivities, activitiesCompleted }) {
 
   return (
     <div className="studypage">
-      <EduContent />
+      <MiniHeader />
       <Timer />
-      <ButtonLink to="/activitycomplete" className="studypage__break-btn">
-        I need a break now.
-      </ButtonLink>
     </div>
   );
 }

@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import ButtonLink from "../ButtonLink/ButtonLink";
+import "./Timer.css";
 
 function Timer({}) {
   const Ref = useRef(null);
@@ -55,11 +57,16 @@ function Timer({}) {
 
   return (
     <div style={{ textAlign: "center", margin: "auto" }}>
-      <h1 style={{ color: "green" }}>
-        Let yourself focus on this task until the timer goes off
-      </h1>
-      <h3>20 Minutes</h3>
-      <h2>{timer}</h2>
+      <h1 className="timer__clock">{timer}</h1>
+      <h2 className="timer__instructions">
+        Let yourself focus on this task until the timer goes off. You can also
+        click below for an early break. Breaks give you the chance to relax,
+        reset, and get a study tip.
+      </h2>
+
+      <ButtonLink to="/activitycomplete" className="studypage__break-btn">
+        I need a break now.
+      </ButtonLink>
     </div>
   );
 }
