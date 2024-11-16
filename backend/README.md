@@ -79,3 +79,54 @@ To run the backend server, use the following command:
 `python manage.py runserver`
 
 This will start the Django development server on http://127.0.0.1:8000/.
+
+
+
+## Testing Backend Endpoints in Postman
+Backend endpoints can be tested by making a call using Postman.
+1. **Set Up Postman**:
+   - Install the [Postman Desktop App](https://www.postman.com/downloads/) or use the [Postman Web Interface](https://web.postman.co).
+   - Sign in with a free account if prompted.
+
+2. **Example: Testing the `POST` /summary endpoint**:
+   - Open Postman and create a new request.
+   - Set the request type to `POST`.
+   - Enter the URL for the endpoint. For example:
+     ```
+     http://127.0.0.1:8000/user/summary/
+     ```
+
+3. **Add the Request Body**:
+   - Select the **Body** tab.
+   - Choose `raw` and set the format to `JSON`.
+   - Enter the request payload. Example:
+     ```json
+        {
+            "input": "math study plan"
+        }
+     ```
+
+4. **Send the Request**:
+   - Click **Send** to make the request.
+
+5. **Example Response**:
+   - A successful response should have the status 200 OK and look like this in the body:
+     ```json
+        {
+            "subject": "Mathematics",
+            "description": "An overview of math study plans",
+            "key_concepts": [
+                "Algebra",
+                "Geometry",
+                "Calculus"
+            ],
+            "details": "Focus on core areas like algebra and geometry for foundational understanding.",
+            "study_plan": "Study algebra for 2 hours daily and practice problems from a textbook."
+        }
+     ```
+
+   - Here's a screenshot of what it should look like:
+![Testing an Endpoint in Postman](./images/summary-example-image.png)
+
+### Note:
+Ensure your backend server is running before testing the endpoints by running `python manage.py runserver` in the terminal. Replace `http://127.0.0.1:8000` with the correct base URL in Postman if the server is hosted elsewhere.
