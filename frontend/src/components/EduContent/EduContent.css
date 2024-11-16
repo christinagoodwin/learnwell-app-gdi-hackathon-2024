@@ -1,13 +1,27 @@
-.educontent {
-  margin-right: 20px;
-  margin-left: 20px;
+
+
+h1{
+    color: #0B8A8A;
 }
 
-.studypage__break-btn {
-  margin-left: 40px;
+h2 {
+    color: #0B8A8A;
 }
 
-.educontent__btn-box {
-  width: fit-content;
-  margin: 0 auto 20px;
+.educontent_heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.educontent{
+    padding: 0 5rem;
+}
+
+.educontent__go-btn{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 1rem;
 }

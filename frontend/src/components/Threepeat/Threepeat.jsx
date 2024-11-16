@@ -1,12 +1,11 @@
 import React from "react";
 import "./Threepeat.css";
 import ButtonLink from "../ButtonLink/ButtonLink";
-import MiniHeader from "../MiniHeader/MiniHeader";
+
 function Threepeat({ handleTipClick }) {
   return (
-    <div className="threepeat">
-      <MiniHeader />
-      <h3 className="threepeat__title">You did it!</h3>
+    <div className="breakpage">
+      <h3 className="breakpage__title">You did it!</h3>
       <p>
         Wow! You've been through 3 study sessions and we recommend taking a
         longer break. Most people can concentrate on a single task for about an
@@ -14,23 +13,20 @@ function Threepeat({ handleTipClick }) {
         session or step away for now. You can also click below for another tip
         before you go!
       </p>
-      <div>
-        <div className="threepeat__buttons">
-          <div className="threepeat__btn">
-            <ButtonLink to="/studypage">I'll do 20 more minutes</ButtonLink>
-          </div>
-          <div className="threepeat__btn">
-            <ButtonLink to="/">I'm done with this topic</ButtonLink>
-          </div>
-          <div className="threepeat__btn">
-            {" "}
-            <ButtonLink to="/farewell">Logout</ButtonLink>
-          </div>
-          <button className="btn" onClick={handleTipClick}>
-            Get a tip for studying well
-          </button>
-        </div>
-      </div>
+      <ul className="breakpage__buttons">
+        <ButtonLink to="/studypage" className="breakpage__reset-btn">
+          I'll do 20 more minutes
+        </ButtonLink>
+        <ButtonLink to="/" className="threepeat__done-btn">
+          I'm done with this topic
+        </ButtonLink>
+        <ButtonLink to="/farewell" className="threepeat__logout-btn">
+          Logout
+        </ButtonLink>
+        <button className="breakpage__studytipbtn" onClick={handleTipClick}>
+          Get a tip for studying well
+        </button>
+      </ul>
     </div>
   );
 }
