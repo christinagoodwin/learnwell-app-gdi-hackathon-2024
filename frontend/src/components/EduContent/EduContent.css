@@ -1,9 +1,11 @@
+
+
 h1{
     color: #0B8A8A;
 }
 
 h2 {
-    color: #10D1D1;
+    color: #0B8A8A;
 }
 
 .educontent_heading{
@@ -12,3 +14,14 @@ h2 {
     align-items: center;
 }
 
+.educontent{
+    padding: 0 5rem;
+}
+
+.educontent__go-btn{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    padding: 1rem;
+}

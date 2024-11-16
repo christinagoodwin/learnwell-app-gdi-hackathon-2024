@@ -1,0 +1,34 @@
+.activity__title{
+    color: #0B8A8A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.activity__wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+}
+
+.educontent__go-btn{
+    background-color: #b6bcbe;
+    color: white;
+    margin:3rem;
+    border: none;
+    border-radius: 50px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.educontent__go-btn:hover{
+    background-color: #10D1D1;
+    transform: scale(1.05);
+}
+
+.educontent__go-btn:active{
+    transform: scale(0.95);
+}
+

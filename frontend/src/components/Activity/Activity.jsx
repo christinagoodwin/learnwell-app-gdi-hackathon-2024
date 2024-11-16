@@ -31,9 +31,12 @@ function Activity({}) {
         way can help you remember the escalation process and the
         interconnectedness of these events.
       </p>
-      <ButtonLink to="/instructions" className="educontent__go-btn">
-        Help me get started!
+      <ButtonLink to="/instructions" className="">
+        Start
       </ButtonLink>
+      <button to="/instructions" className="educontent__go-btn">
+        Back
+      </button>
     </div>
   );
 }

@@ -101,9 +101,12 @@ function EduContent({}) {
           </p>
         </div>
       </div>
-      <ButtonLink to="/activity" className="educontent__go-btn">
-        How can I learn all this?
-      </ButtonLink>
+      <div className="educontent__go-btn">
+        <ButtonLink to="/activity" className="">
+        I'm ready to start learning
+        </ButtonLink>
+      </div>
+      
     </div>
   );
 }
