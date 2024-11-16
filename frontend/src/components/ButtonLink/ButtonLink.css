@@ -1,5 +1,5 @@
 .btn{
-    background-color: #FA3838;
+    background-color: #0B8A8A;
     color: white;
     padding: 1rem 3rem;
     border: none;
@@ -10,7 +10,7 @@
 }
 
 .btn:hover{
-    background-color: #087373;
+    background-color: #10D1D1;
     transform: scale(1.05);
 }
 

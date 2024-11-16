@@ -9,10 +9,13 @@ function EduContent({}) {
   return (
     <div className="educontent">
       <div className="educontent__placeholder">
-        <h2>
-          Here's what you should know about _____ [Using causes of WWI as
-          example]
-        </h2>
+        <div className="educontent_heading">
+          <h1>Summary</h1>
+          <h2>
+            Here's what you should know about _____ [Using causes of WWI as example]
+          </h2>
+        </div>
+        
         <div>
           <p>
             The outbreak of World War I, also known as the Great War, was the
@@ -98,9 +101,12 @@ function EduContent({}) {
           </p>
         </div>
       </div>
-      <ButtonLink to="/activity" className="educontent__go-btn">
-        How can I learn all this?
-      </ButtonLink>
+      <div className="educontent__go-btn">
+        <ButtonLink to="/activity" className="">
+        I'm ready to start learning
+        </ButtonLink>
+      </div>
+      
     </div>
   );
 }

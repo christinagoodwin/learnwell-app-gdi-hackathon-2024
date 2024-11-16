@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import "./App.css";
 import Header from "../Header/Header";
 import TopicChooser from "../TopicChooser/TopicChooser";
 import Activity from "../Activity/Activity";
@@ -14,6 +13,7 @@ import Farewell from "../Farewell/Farewell";
 import Footer from "../Footer/Footer";
 import Modal from "../Modal/Modal";
 import { studyTips } from "../../utils/constants";
+import "./App.css";
 
 function App() {
   const [topic, setTopic] = useState("");
@@ -43,7 +43,7 @@ function App() {
   return (
     <div className="app">
       <div className="app_content">
-        <Header />
+        <Header className="header" />
         <Routes>
           <Route path="/" element={<Main handleTipClick={handleTipClick} />} />
           <Route path="/picktopic" element={<TopicChooser />} />
