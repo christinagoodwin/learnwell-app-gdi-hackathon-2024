@@ -1,9 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+
 from openai_integration.service import generate_text
-
-
 from openai_integration.service import summarize_text
 
 class WelcomeView(APIView):
@@ -15,18 +14,44 @@ class TopicChoiceView(APIView):
     def post(self, request):
         topic = request.data.get("topic", "No topic provided")
         # Placeholder response
-        return Response({"message": f"Chosen topic: {topic}"}, status=status.HTTP_200_OK)
+        return Response({"message": topic}, status=status.HTTP_200_OK)
 
 class TopicOverviewView(APIView):
     def get(self, request):
-
-        query=summarize_text(request.data, max_tokens=180)
-        response_data = {
-            "original_text": request.data,
+        text_to_summarize = request.query_params.get("text", None)
+        if not text_to_summarize:
+            return Response({"error": "No text provided for summarization"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        try:
+            query=summarize_text(text_to_summarize, max_tokens=180)
+            if not query:
+                raise ValueError("Summarization failed")
+            response_data = {
+            "original_text": text_to_summarize,
             "summary": query,
         }
+            return Response(response_data, status=status.HTTP_200_OK)
+        except Exception as e:
+            return Response(
+                {"error": f"Error generating summary: {str(e)}"},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        return Response(response_data, status=status.HTTP_200_OK)
+
+# //
+
+# Older
+# class TopicOverviewView(APIView):
+#     def get(self, request):
+
+#         query=summarize_text(request.data, max_tokens=180)
+#         response_data = {
+#             "original_text": request.data,
+#             "summary": query,
+#         }
+
+#         return Response(response_data, status=status.HTTP_200_OK)
+
+# Old ends
 
 class StudyPlanView(APIView):
     def post(self, request):
@@ -75,8 +100,3 @@ class HourCompletionReminderView(APIView):
         
         return Response({"message": "One hour completed, reminder to take a break"}, status=status.HTTP_200_OK)
     
-
-
-
-
-

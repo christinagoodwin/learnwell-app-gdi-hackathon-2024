@@ -19,5 +19,3 @@ urlpatterns = [
     path('hour-reminder/', HourCompletionReminderView.as_view(), name='hour_reminder'),
     
 ]
-
-
