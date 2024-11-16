@@ -9,10 +9,13 @@ function EduContent({}) {
   return (
     <div className="educontent">
       <div className="educontent__placeholder">
-        <h2>
-          Here's what you should know about _____ [Using causes of WWI as
-          example]
-        </h2>
+        <div className="educontent_heading">
+          <h1>Summary</h1>
+          <h2>
+            Here's what you should know about _____ [Using causes of WWI as example]
+          </h2>
+        </div>
+        
         <div>
           <p>
             The outbreak of World War I, also known as the Great War, was the

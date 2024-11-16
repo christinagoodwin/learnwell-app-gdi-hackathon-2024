@@ -1,0 +1,14 @@
+h1{
+    color: #0B8A8A;
+}
+
+h2 {
+    color: #10D1D1;
+}
+
+.educontent_heading{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

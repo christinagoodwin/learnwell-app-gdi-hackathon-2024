@@ -10,52 +10,11 @@ class WelcomeView(APIView):
         # Placeholder response
         return Response({"message": "Welcome and setup tips"}, status=status.HTTP_200_OK)
 
-# class TopicChoiceView(APIView):
-    def post(self, request):
-        topic = request.data.get("topic", None)
-        if not topic:
-            return Response({"error": "No topic provided"}, status=status.HTTP_400_BAD_REQUEST)
-        
-        # Placeholder response
-        return Response({"message": f"Chosen topic: {topic}"}, status=status.HTTP_200_OK)
-
 class TopicChoiceView(APIView):
     def post(self, request):
-        topic = request.data.get("topic", None)
-        max_tokens=180
-        
-        if not topic:
-            return Response(
-                {"error": "Please provide a topic to learn about."},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        try:            
-            summary = summarize_text(topic, max_tokens)
-
-            if not summary:
-                return Response(
-                    {"error": "Could not generate a summary. Please try again later."},
-                    status=status.HTTP_500_INTERNAL_SERVER_ERROR
-                )
-
-            response_data = {
-                "topic": topic,
-                "summary": summary,
-                "study_tips": [
-                    "Break the topic into smaller concepts and learn them step-by-step.",
-                    "Try drawing diagrams or using visuals to better understand the topic.",
-                    "Review your understanding by explaining the topic to someone else."
-                ]
-            }
-            return Response(response_data, status=status.HTTP_200_OK)
-
-        except Exception as e:
-            return Response(
-                {"error": f"An error occurred: {str(e)}"},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
-
+        topic = request.data.get("topic", "No topic provided")
+        # Placeholder response
+        return Response({"message": topic}, status=status.HTTP_200_OK)
 
 class TopicOverviewView(APIView):
     def get(self, request):
@@ -77,6 +36,22 @@ class TopicOverviewView(APIView):
                 {"error": f"Error generating summary: {str(e)}"},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+
+# //
+
+# Older
+# class TopicOverviewView(APIView):
+#     def get(self, request):
+
+#         query=summarize_text(request.data, max_tokens=180)
+#         response_data = {
+#             "original_text": request.data,
+#             "summary": query,
+#         }
+
+#         return Response(response_data, status=status.HTTP_200_OK)
+
+# Old ends
 
 class StudyPlanView(APIView):
     def post(self, request):
@@ -125,8 +100,3 @@ class HourCompletionReminderView(APIView):
         
         return Response({"message": "One hour completed, reminder to take a break"}, status=status.HTTP_200_OK)
     
-
-
-
-
-

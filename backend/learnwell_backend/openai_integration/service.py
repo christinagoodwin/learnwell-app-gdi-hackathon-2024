@@ -1,17 +1,15 @@
-from openai import OpenAI, api_key
+from openai import OpenAI
 import openai
 import os
 from dotenv import load_dotenv
 
-
 load_dotenv()
 
 apiKey = os.getenv('OPENAI_API_KEY')
-
 client = OpenAI(api_key=apiKey)
 
 def summarize_text(text, max_tokens=180):
-    prompt = f"Summarize the following text in a few sentences:\n\n{text}"
+    prompt = f"Summarize the following text in a few sentences, the student needs to study on it:\n\n{text}"
 
     try:
         response = client.chat.completions.create(
@@ -19,15 +17,40 @@ def summarize_text(text, max_tokens=180):
             messages=[{"role": "user", "content": prompt}],
             max_tokens=max_tokens
         )
-        
+
         summary = response.choices[0].message.content.strip()
         return summary
 
     except Exception as e:
         print(f"Error with OpenAI API request: {e}")
         return None
-    
 
+
+# Old Start
+# def summarize_text(text, max_tokens=180):
+#     # Create the prompt to instruct the model for summarization
+#     prompt = f"Summarize the following text in a few sentences:\n\n{text}"
+
+#     try:
+#         # Call the OpenAI API with the summarization prompt
+#         response = openai.Completion.create(
+#             engine="gpt-3.5-turbo-instruct",  # or "gpt-4" if you're using GPT-4
+#             prompt=prompt,
+#             max_tokens=max_tokens,
+#             n=1,  # Number of responses
+#             stop=None,  # We don't need to specify a stopping sequence here
+#             temperature=0.7  # Adjusts the randomness of the response
+#         )
+
+#         # Extract the text response
+#         summary = response.choices[0].text.strip()
+#         return summary
+
+#     except Exception as e:
+#         print(f"Error with OpenAI API request: {e}")
+#         return None
+    
+# Old End
 
 def generate_text(user_prompt):
     try:
