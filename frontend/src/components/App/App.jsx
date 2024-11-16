@@ -28,11 +28,9 @@ function App() {
     setStudyTip(randomStudyTip);
   };
 
-  /*
   const getTopicResponse = ({ values }, resetForm) => {
     getEduContent(values.userTopic).then((data) => setTopic(data));
   };
-  */
 
   const handleTipClick = () => {
     setActiveModal("healthyhabit");
@@ -52,7 +50,10 @@ function App() {
       <div className="app_content">
         <Routes>
           <Route path="/" element={<Main handleTipClick={handleTipClick} />} />
-          <Route path="/picktopic" element={<TopicChooser />} />
+          <Route
+            path="/picktopic"
+            element={<TopicChooser getTopicResponse={getTopicResponse} />}
+          />
           <Route path="/educontent" element={<EduContent />} />
           <Route path="/activity" element={<Activity />} />
           <Route path="/instructions" element={<Instructions />} />

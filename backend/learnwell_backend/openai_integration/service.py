@@ -1,16 +1,12 @@
-import openai  # for handling errors
-from openai import OpenAI
-
-
-client = OpenAI()
 
 from openai import OpenAI, api_key
 import openai
-from learnwell_backend.config import apiKey
+
+# from learnwell_backend.config import apiKey
 
 
 
-client = OpenAI(api_key=apiKey)
+client = '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'
 
 
 

@@ -1,4 +1,5 @@
-const baseUrl = "http://127.0.0.1:8000/user/summary/";
+const urlstring = "http://127.0.0.1:8000/user/summary/";
+const baseUrl = new URL(urlstring);
 
 export function checkResponse(res) {
   if (res.ok) {
@@ -8,14 +9,13 @@ export function checkResponse(res) {
   }
 }
 
-export const getEduContent = ({ values }) => {
+export const getEduContent = (data) => {
+  baseUrl.searchParams.append("original_text", data);
   return fetch(baseUrl, {
     method: "GET",
-    body: JSON.stringify({
-      values,
-    }),
     headers: {
-      "Content-type": "application/json",
+      Accept: "application/json",
+      "Content-Type": "application/json",
     },
   }).then(checkResponse);
 };
