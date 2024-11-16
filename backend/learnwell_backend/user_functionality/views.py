@@ -1,6 +1,8 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from openai_integration.service import generate_text
+
 
 from openai_integration.service import summarize_text
 
@@ -28,13 +30,39 @@ class TopicOverviewView(APIView):
 
 class StudyPlanView(APIView):
     def post(self, request):
-        # Placeholder response
-        return Response({"message": "Generated study plan ideas"}, status=status.HTTP_200_OK)
+        # Extract user input from the request
+        user_input = request.data.get('input') 
+
+        if not user_input:
+            return Response(
+                {"error": "Input is required."},
+                status=status.HTTP_400_BAD_REQUEST
+            )
+        
+        # Fetch summary using OpenAI
+        response = generate_text(user_input)
+
+        # Ensure the response contains valid data
+        if not isinstance(response, dict):
+            return Response(
+                {"error": "Unexpected response format from OpenAI."},
+                status=status.HTTP_500_INTERNAL_SERVER_ERROR
+            )
+
+        return Response(response, status=status.HTTP_200_OK)
 
 class StudySessionStartView(APIView):
     def post(self, request):
-        # Placeholder response
-        return Response({"message": "Study session started"}, status=status.HTTP_200_OK)
+        # Get the session details from the request or initialize a session
+        session_data = {
+            "session_id": "unique-session-id",
+            "status": "started",
+            "message": "Study session started successfully"
+        }
+        
+        # Here you can add more logic to track the session or save it in a database
+
+        return Response(session_data, status=status.HTTP_200_OK)
 
 class BreakSuggestionView(APIView):
     def get(self, request):
