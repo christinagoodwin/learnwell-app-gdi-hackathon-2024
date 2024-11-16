@@ -20,9 +20,13 @@ class TopicChoiceView(APIView):
 class TopicOverviewView(APIView):
     def get(self, request):
 
+
         query=summarize_text(request.data, max_tokens=180)
+        print('DATA',request.data)
+
+        print("Summeray_Data",query)
         response_data = {
-            "original_text": request.data,
+            "original_data": request.data,
             "summary": query,
         }
 

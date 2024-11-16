@@ -1,10 +1,10 @@
-from openai import OpenAI, api_key
+
 import openai
+import os
 from learnwell_backend.config import apiKey
 
-client = OpenAI(api_key=apiKey)
 
-
+openai.api_key = apiKey
 def summarize_text(text, max_tokens=180):
     # Create the prompt to instruct the model for summarization
     prompt = f"Summarize the following text in a few sentences:\n\n{text}"
@@ -26,7 +26,7 @@ def summarize_text(text, max_tokens=180):
 
     except Exception as e:
         print(f"Error with OpenAI API request: {e}")
-        return None
+        return e
     
 
 
