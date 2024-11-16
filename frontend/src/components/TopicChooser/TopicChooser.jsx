@@ -3,7 +3,6 @@ import "./TopicChooser.css";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import MiniHeader from "../MiniHeader/MiniHeader";
 import { useFormAndValidation } from "../../hooks/useFormandValidate";
-import { Link } from "react-router-dom";
 
 function TopicChooser({ getTopicResponse }) {
   const { values, errors, isValid, resetForm, handleChange } =
@@ -40,9 +39,11 @@ function TopicChooser({ getTopicResponse }) {
           {errors.name && (
             <span className="modal__input-error_active">{errors.name}</span>
           )}
+
           <button className="topic-chooser__submit" type="submit">
-            BUTTON
+            Figure out what I need to know...
           </button>
+          <ButtonLink to="/educontent">and take me there!</ButtonLink>
         </form>
       </div>
     </div>
