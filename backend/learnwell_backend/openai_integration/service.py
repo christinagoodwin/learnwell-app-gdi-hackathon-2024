@@ -1,18 +1,8 @@
-import openai  # for handling errors
-from openai import OpenAI
-
-
-client = OpenAI()
-
 from openai import OpenAI, api_key
 import openai
 from learnwell_backend.config import apiKey
 
-
-
 client = OpenAI(api_key=apiKey)
-
-
 
 
 def summarize_text(text, max_tokens=180):
