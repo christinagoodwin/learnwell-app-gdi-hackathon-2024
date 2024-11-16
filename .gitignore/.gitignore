@@ -14,6 +14,13 @@ Thumbs.db
 
 # Virtual environment
 venv/
+.venv/
+
+# SQLite database
+backend/learnwell_backend/db.sqlite3
+
+# Django migration cache files
+backend/learnwell_backend/*/migrations/__pycache__/
 
 #api key
 .config.py
