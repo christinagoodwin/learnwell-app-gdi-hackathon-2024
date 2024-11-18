@@ -2,7 +2,6 @@ import React from "react";
 import "./Main.css";
 import ButtonLink from "../ButtonLink/ButtonLink";
 import { Outlet } from "react-router-dom";
-import Header from "../Header/Header";
 
 function Main({ handleTipClick }) {
   const handleGetStartedClick = () => {
@@ -10,21 +9,16 @@ function Main({ handleTipClick }) {
   };
 
   return (
-    <div>
-      <Header />
-      <main className="mainContent">
-        <h2>PICK A QUIET, FAMILIAR PLACE.</h2>
-        <h2>REMOVE DISTRACTIONS.</h2>
-        <h2>BE RESTED AND HYDRATE.</h2>
-        <h2>GATHER MATERIALS (E.G, PEN, PAPER, WATER, SNACK)</h2>
-        <button className="btn" onClick={handleTipClick}>
-          Get another tip for studying well.
-        </button>
-        <h1></h1>
-        <ButtonLink className="btn" type="button" to="/picktopic">
-          Get Started
-        </ButtonLink>
-        {/* <h2>Avoid cramming and stress! Learn new material, well.</h2>
+    <main className="mainContent">
+      <h1>Avoid cramming and stress! Learn new material effectively:</h1>
+      <h2>PICK A QUITE, FAMILIAR PLACE.</h2>
+      <h2>AVOID DISTRACTIONS (E.G, PUT PHONE ON SILENT).</h2>
+      <h2>BE RESTED AND HYDRATED</h2>
+      <h2>GATHER MATERIALS (E.G, PEN, PAPER, WATER)</h2>
+      <button onClick={handleTipClick}>Get another tip for studying well.</button>
+      <h1></h1>
+      <ButtonLink className="btn" type="button" to="/picktopic">Get Started</ButtonLink>
+      {/* <h2>Avoid cramming and stress! Learn new material, well.</h2>
       <p>
         Did you know that taking breaks and getting rest are part of learning?
         Let us know what you'd like to understand. We'll give you the content
@@ -45,13 +39,12 @@ function Main({ handleTipClick }) {
           studying.
         </li>
       </ul> */}
-
-        {/* <ButtonLink type="button" to="/picktopic" className="footer-btn">
+      
+      {/* <ButtonLink type="button" to="/picktopic" className="footer-btn">
         I'm ready to pick my topic.
       </ButtonLink> */}
-        <Outlet />
-      </main>
-    </div>
+      <Outlet />
+    </main>
   );
 }
 

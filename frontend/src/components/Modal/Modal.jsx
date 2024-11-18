@@ -16,8 +16,13 @@ function Modal({ handleModalClose, activeModal, studyTip }) {
             X
           </button>
           <img className="modal__item-image" src={studyTip.img}></img>
-          <h3 className="modal__title">{studyTip.title}</h3>
-          <p className="modal__text">{studyTip.content}</p>
+          <h3>{studyTip.title}</h3>
+          <p>
+            Take a break for 10 minutes! When you come back, see what you
+            remember about your last study session. Then go over what you
+            learned or try a new activity!
+          </p>
+          <p>{studyTip.content}</p>
         </div>
       </div>
     </div>

@@ -1,13 +1,12 @@
 import React from "react";
 import "./Activity.css";
 import ButtonLink from "../ButtonLink/ButtonLink";
-import MiniHeader from "../MiniHeader/MiniHeader";
+
 //Would be nice if the user could click a button to get a new activity response from API
 
 function Activity({}) {
   return (
     <div className="activity__wrapper">
-      <MiniHeader />
       <h3 className="activity__title">Try this!</h3>
       <p className="activity__intro-text">
         Below is an activity recommendation from the OpenAI API. Make this an
@@ -32,11 +31,12 @@ function Activity({}) {
         way can help you remember the escalation process and the
         interconnectedness of these events.
       </p>
-      <div className="activity__btn-box">
-        <ButtonLink to="/instructions" className="activity__go-btn">
-          Help me get started!
-        </ButtonLink>
-      </div>
+      <ButtonLink to="/instructions" className="">
+        Start
+      </ButtonLink>
+      <button to="/instructions" className="educontent__go-btn">
+        Back
+      </button>
     </div>
   );
 }

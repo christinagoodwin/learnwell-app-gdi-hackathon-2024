@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import openai  # for handling errors
 from openai import OpenAI
 
@@ -15,30 +16,58 @@ client = OpenAI(api_key=apiKey)
 
 
 
+=======
+
+import openai
+import os
+from learnwell_backend.config import apiKey
+
+
+openai.api_key = apiKey
+>>>>>>> c82d1d9bb3dd9adc4dfa7a45a9eeb0faa436d8c6
 def summarize_text(text, max_tokens=180):
-    # Create the prompt to instruct the model for summarization
-    prompt = f"Summarize the following text in a few sentences:\n\n{text}"
+    prompt = f"Summarize the following text in a few sentences, the student needs to study on it:\n\n{text}"
 
     try:
-        # Call the OpenAI API with the summarization prompt
-        response = openai.Completion.create(
-            engine="gpt-3.5-turbo-instruct",  # or "gpt-4" if you're using GPT-4
-            prompt=prompt,
-            max_tokens=max_tokens,
-            n=1,  # Number of responses
-            stop=None,  # We don't need to specify a stopping sequence here
-            temperature=0.7  # Adjusts the randomness of the response
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=max_tokens
         )
 
-        # Extract the text response
-        summary = response.choices[0].text.strip()
+        summary = response.choices[0].message.content.strip()
         return summary
 
     except Exception as e:
         print(f"Error with OpenAI API request: {e}")
         return None
-    
 
+
+# Old Start
+# def summarize_text(text, max_tokens=180):
+#     # Create the prompt to instruct the model for summarization
+#     prompt = f"Summarize the following text in a few sentences:\n\n{text}"
+
+#     try:
+#         # Call the OpenAI API with the summarization prompt
+#         response = openai.Completion.create(
+#             engine="gpt-3.5-turbo-instruct",  # or "gpt-4" if you're using GPT-4
+#             prompt=prompt,
+#             max_tokens=max_tokens,
+#             n=1,  # Number of responses
+#             stop=None,  # We don't need to specify a stopping sequence here
+#             temperature=0.7  # Adjusts the randomness of the response
+#         )
+
+#         # Extract the text response
+#         summary = response.choices[0].text.strip()
+#         return summary
+
+#     except Exception as e:
+#         print(f"Error with OpenAI API request: {e}")
+#         return None
+    
+# Old End
 
 def generate_text(user_prompt):
     try:
